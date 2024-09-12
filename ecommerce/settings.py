@@ -8,7 +8,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = '#vw(03o=(9kbvg!&2d5i!2$_58x@_-3l4wujpow6(ym37jxnza'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -17,16 +17,17 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'corsheaders',  # Add this line
     'django.contrib.staticfiles',
     'ecom',
     'widget_tweaks',
-    'corsheaders',  # Add this line
+   
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # Add this line
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Add this line
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -104,30 +105,24 @@ EMAIL_HOST_USER = 'from@gmail.com'
 EMAIL_HOST_PASSWORD = 'xyz'
 EMAIL_RECEIVING_USER = ['to@gmail.com']
 
-# CORS settings
-CORS_ALLOWED_ORIGINS = [
-    'https://your-allowed-origin.com',  # Replace with your allowed origins
-    'https://another-allowed-origin.com',
+# CORS Headers Settings
+
+# List of trusted origins for CSRF protection
+CSRF_TRUSTED_ORIGINS = [
+
+    "https://23.20.40.204",
+    "http://127.0.0.1:8000",
 ]
 
-# Optional: Allow all origins (use with caution in production)
-# CORS_ALLOW_ALL_ORIGINS = False
+# List of allowed origins for CORS
+CORS_ALLOWED_ORIGINS = [
+    "https://23.20.40.204",
+    "http://127.0.0.1:8000",
+]
 
-# Optional: Allow credentials
+# Allow all origins (useful for development, but not recommended for production)
+CORS_ORIGIN_ALLOW_ALL = False  # Change this to False for production
+
+# Allow credentials to be included in CORS requests
 CORS_ALLOW_CREDENTIALS = True
 
-# Optional: Allow specific headers
-CORS_ALLOW_HEADERS = [
-    'content-type',
-    'authorization',
-]
-
-# Optional: Allow specific methods
-CORS_ALLOW_METHODS = [
-    'GET',
-    'POST',
-    'PUT',
-    'PATCH',
-    'DELETE',
-    'OPTIONS',
-]
