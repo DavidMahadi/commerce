@@ -8,7 +8,8 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = '#vw(03o=(9kbvg!&2d5i!2$_58x@_-3l4wujpow6(ym37jxnza'
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '23.20.40.204']  # Add your public IP or domain
 
 # Application definition
 INSTALLED_APPS = [
@@ -108,17 +109,28 @@ EMAIL_RECEIVING_USER = ['to@gmail.com']
 # CORS Headers Settings
 
 # List of trusted origins for CSRF protection
-CSRF_TRUSTED_ORIGINS = [
+# CSRF_TRUSTED_ORIGINS = [
 
+#     "https://23.20.40.204",
+#     "http://127.0.0.1:8000",
+# ]
+
+# # List of allowed origins for CORS
+# CORS_ALLOWED_ORIGINS = [
+#     "https://23.20.40.204",
+#     "http://127.0.0.1:8000",
+# ]
+
+CSRF_TRUSTED_ORIGINS = [
     "https://23.20.40.204",
-    "http://127.0.0.1:8000",
+    "http://23.20.40.204",
 ]
 
-# List of allowed origins for CORS
 CORS_ALLOWED_ORIGINS = [
     "https://23.20.40.204",
-    "http://127.0.0.1:8000",
+    "http://23.20.40.204",
 ]
+
 
 # Allow all origins (useful for development, but not recommended for production)
 CORS_ORIGIN_ALLOW_ALL = False  # Change this to False for production
