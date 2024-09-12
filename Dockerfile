@@ -1,6 +1,7 @@
 # Use a specific version of the Python image to ensure consistency
 FROM python:3.9-slim
 
+
 # Set environment variables to avoid writing .pyc files and to buffer output
 ENV PYTHONUNBUFFERED=1
 
@@ -11,7 +12,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install requirements.txt
 
 # Copy the rest of the application code
 COPY . /app/
