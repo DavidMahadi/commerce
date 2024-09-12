@@ -13,11 +13,11 @@ colorama==0.4.6
 contextlib2==21.6.0
 coreapi==2.3.3
 coreschema==0.0.4
-cryptography==41.0.5  # Updated version
+cryptography==39.0.2
 cssselect2==0.7.0
 defusedxml==0.7.1
 dj-database-url==2.2.0
-Django==4.2.15
+Django==5.0.4
 django-allauth==0.54.0
 django-cloudinary-storage==0.3.0
 django-cors-headers==4.3.1
@@ -49,7 +49,7 @@ pathspec==0.11.1
 pillow==10.3.0
 platformdirs==3.2.0
 psycopg2==2.9.9
-psycopg2-binary==2.9.9
+psycopg2-binary==2.9.6
 pycairo==1.25.1
 pycparser==2.21
 pyHanko==0.21.0
