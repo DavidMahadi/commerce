@@ -1,7 +1,6 @@
 # Use a specific version of the Python image to ensure consistency
 FROM python:3.9-slim
 
-
 # Set environment variables to avoid writing .pyc files and to buffer output
 ENV PYTHONUNBUFFERED=1
 
@@ -12,7 +11,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 
 # Install dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY . /app/
@@ -21,4 +20,4 @@ COPY . /app/
 EXPOSE 9000
 
 # Define the command to run the application (adjust if using a different entry point)
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:9000" ]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:9000"]
